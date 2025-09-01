@@ -1,7 +1,7 @@
-import { Todo } from "../compnents/todo.js";
+import { Todo } from "../components/todo.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-import { FormValidator } from "../compnents/FormValidator.js";
+import { FormValidator } from "../components/FormValidator.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -23,7 +23,7 @@ const closeModal = (modal) => {
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
-  const todo = new Todo(data, `${todoTemplate}`);
+  const todo = new Todo(data, todoTemplate);
   return todo.getView();
 };
 
@@ -52,7 +52,7 @@ addTodoForm.addEventListener("submit", (evt) => {
 
   const todo = generateTodo(values);
   todosList.append(todo);
-  
+
   validator.resetValidation();
 
   closeModal(addTodoPopup);

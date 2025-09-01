@@ -18,12 +18,6 @@ export class FormValidator {
     this._setEventListeners();
   }
 
-  resetValidation() {
-    this._toggleButtonState();
-    this._inputList.forEach((input) => this._hideInputError(input));
-    this._formElement.reset();
-  }
-
   _setEventListeners() {
     this._toggleButtonState();
 
