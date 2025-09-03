@@ -5,7 +5,7 @@ import { FormValidator } from "../components/FormValidator.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
+const addTodoForm = document.forms["add-todo-form"];
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todoTemplate = "#todo-template";
 const todosList = document.querySelector(".todos__list");
@@ -25,6 +25,11 @@ const closeModal = (modal) => {
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplate);
   return todo.getView();
+};
+
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  todosList.append(todo);
 };
 
 addTodoButton.addEventListener("click", () => {
@@ -50,8 +55,7 @@ addTodoForm.addEventListener("submit", (evt) => {
     date,
   };
 
-  const todo = generateTodo(values);
-  todosList.append(todo);
+  renderTodo(values);
 
   validator.resetValidation();
 
@@ -59,6 +63,5 @@ addTodoForm.addEventListener("submit", (evt) => {
 });
 
 initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
+  renderTodo(item);
 });

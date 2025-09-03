@@ -49,5 +49,10 @@ export class Todo {
     deleteBtn.addEventListener("click", () => {
       this._element.remove();
     });
+
+    const checkboxEl = this._element.querySelector(".todo__completed");
+    checkboxEl.addEventListener("change", () => {
+      this._data.completed = checkboxEl.checked;
+    });
   }
 }
