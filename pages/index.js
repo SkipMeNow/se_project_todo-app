@@ -1,4 +1,4 @@
-import { Todo } from "../components/todo.js";
+import { Todo } from "../components/Todo.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 import { FormValidator } from "../components/FormValidator.js";
